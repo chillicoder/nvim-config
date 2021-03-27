@@ -10,3 +10,9 @@
 * [Install VIM IDE of Python3 under Ubuntu
   16.04](https://www.programmersought.com/article/85516757234/)
 * [Best way to insert timestamp in Vim?](https://stackoverflow.com/questions/56052/best-way-to-insert-timestamp-in-vim)
+
+## Location
+
+```
+~/.config/nvim/init.vim
+```
