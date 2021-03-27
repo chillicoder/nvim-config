@@ -23,3 +23,8 @@ Installs `vim-plug`
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+## Font
+
+* [AnonymousPro](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/AnonymousPro)
+* [DejaVuSansMono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono)
+* [DroidSansMono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DroidSansMono)

@@ -16,9 +16,17 @@ Plug 'w0rp/ale'
 
 Plug 'ryanoasis/vim-devicons'
 
+" color schemes
 Plug 'jnurmine/Zenburn'
-
 Plug 'altercation/vim-colors-solarized'
+Plug 'tomasiser/vim-code-dark'
+Plug 'agude/vim-eldar'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
+Plug 'morhetz/gruvbox'
+
+" log files highlighthing
+Plug 'mtdl9/vim-log-highlighting'
 
 call plug#end()
 
@@ -121,7 +129,8 @@ if has('gui_running')
   set background=dark
   colorscheme solarized
 else
-  colorscheme zenburn
+  set background=dark
+  colorscheme one
 endif
 
 " vim: set ft=vim:
