@@ -1,34 +1,50 @@
-" initial configuration
+" custom init.vim/.vimrc
 
-set textwidth=80      " Nvim will auto-break long lines if it-s more than 80
+let mapleader=" "
+
+set noswapfile
+set nobackup
+
+set autoread               " automatically reloads file if changed outside
+set hidden                 " change buffer without saving
+
 set encoding=utf-8
+set fileformats=unix,mac,dos
 
-" Plugin section
-call plug#begin("~/.local/share/nvim/plugged")
+set hlsearch
+set incsearch
+set infercase
+set smartcase
 
-Plug 'scrooloose/nerdtree'
+set colorcolumn=80
+set cursorline
+set signcolumn=yes
+set termguicolors
+set guicursor=
 
-Plug 'jiangmiao/auto-pairs'
+set expandtab
+set history=750
+set showmode
+set nostartofline          " do not move cursor back to start of line when moving
+set nowrap
 
-Plug 'tpope/vim-commentary'
+set number
+set nuw=5
+set relativenumber
 
-Plug 'w0rp/ale'
+set ruler
+set scrolloff=4
+set shiftwidth=4
+set showmatch
+set smartindent
+set splitbelow             " split new window below current window
+set splitright             " split new window right of the current one
+set tabstop=4 softtabstop=4
 
-Plug 'ryanoasis/vim-devicons'
-
-" color schemes
-Plug 'jnurmine/Zenburn'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasiser/vim-code-dark'
-Plug 'agude/vim-eldar'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'rakr/vim-one'
-Plug 'morhetz/gruvbox'
-
-" log files highlighthing
-Plug 'mtdl9/vim-log-highlighting'
-
-call plug#end()
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=3
 
 " Config section
 
@@ -39,63 +55,37 @@ filetype plugin indent on
 syntax enable
 
 " improving redrawing smoothness
-set ttyfast
-set lazyredraw
+set lazyredraw      " don't redraw while executing macros
 
-" interface and basic behaviour
-set nocompatible
-" set bs=2		" same as :set backspace=indent,eol,start
-set mousehide
-set number            " show line numbers
-set nuw=5
-set wrap
-set hidden		        " change buffer without saving
-set ruler
-set scrolloff=3		    " lines above/below cursor
-set history=750
-set fileformats=unix,mac,dos
-set cursorline
-set autoread		      " automatically reloads file if changed outside
-set splitbelow		    " split new window below current window
-set splitright		    " split new window right of the current one
-set nojoinspaces	    " use just one space to join strings
-set formatoptions+=j	" delete comment when joining commented lines
-set nostartofline	    " do not move cursor back to start of line when moving
+call plug#begin("~/.local/share/nvim/plugged")
+Plug 'sheerun/vim-polyglot'
 
-" tab/indentation configuration
-set tabstop=2           " number of spaces to replace TAB with
-set softtabstop=2
-set shiftwidth=2        " the number of spaces to be used when using
-set expandtab           " Use spaces instead of tabs
-set smarttab
-set autoindent          " copy the indent from the previous line when pressing ENTER
-set smartindent
+Plug 'scrooloose/nerdtree'
 
-" tab completion
-set wildmode=longest:full,full
-set wildmenu
-set wildignore+=*.o,*~,.lo,*.swp,*.pyc,.git,*.log,*.zip,*.so,*/tmp/*
-set wildignore+=log/**,tmp/**,*DS_Store*,.hg
+Plug 'jiangmiao/auto-pairs'
 
-" search pattern highligth/incremental
-set ignorecase
-set smartcase
-set infercase
-set showmatch
-set hlsearch
-set incsearch
+Plug 'tpope/vim-commentary'
 
-nnoremap <CR> :noh<CR>
+" Plug 'w0rp/ale'
 
-" Indent with TAB
-nnoremap <Tab> >>
-nnoremap <S-Tab> << " TODO: 
-vnoremap <Tab> >
-vnoremap <S-Tab> <  " TODO:
+Plug 'ryanoasis/vim-devicons'
 
-" backup and swap settings
-set nobackup
-set directory=~/.config/nvim/tmp
+" color schemes
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'agude/vim-eldar'
+Plug 'altercation/vim-colors-solarized'
+Plug 'gruvbox-community/gruvbox'
+Plug 'jnurmine/Zenburn'
+Plug 'rakr/vim-one'
+Plug 'tomasiser/vim-code-dark'
+
+" log files highlighthing
+Plug 'mtdl9/vim-log-highlighting'
+
+" A light and configurable statusline/tabline plugin
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
 
 " enable the matchit.vim shipped with vim
 runtime! macros/matchit.vim
@@ -104,33 +94,28 @@ runtime! macros/matchit.vim
 let g:loaded_python_provider=1
 let g:loaded_node_provider=1
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za
-
 " NERDTree
 let NERDTreeShowHidden=1 " Always show dot (hidden) files
 let NERDTreeQuitOnOpen=1 " Close the NERDTree after opening a file
 map <Leader>p :NERDTreeFind<CR> " Leader + p to open NERDTree
 map <Leader>P :NERDTreeToggle<CR> " Leader + P to Toggle NERDTree
 
+au VimEnter * NERDTree
+
 " Linting with ALE
-let g:ale_linters = {
-      \  'python': ['flake8','pylint'],
-      \  'javascript': ['eslint'],
-      \  'ruby': ['standardrb']
-      \}
+" let g:ale_linters = {
+"       \  'python': ['flake8','pylint'],
+"       \  'javascript': ['eslint'],
+"       \  'ruby': ['standardrb']
+"       \}
 
 " color schemes
 if has('gui_running')
-  set background=dark
+  set background=light
   colorscheme solarized
 else
   set background=dark
-  colorscheme one
+  colorscheme gruvbox
 endif
 
 " vim: set ft=vim:
