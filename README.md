@@ -28,3 +28,11 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 * [AnonymousPro](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/AnonymousPro)
 * [DejaVuSansMono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono)
 * [DroidSansMono](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DroidSansMono)
+
+### Install fonts with homebrew
+
+```shell
+brew install font-anonymous-pro
+brew install font-dejavu-sans-mono-nerd-font
+brew install font-droid-sans-mono-nerd-font
+```
